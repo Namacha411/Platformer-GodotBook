@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://lwgg08a01qok"]
+
+[ext_resource type="Script" path="res://Character.gd" id="1_gru8n"]
+[ext_resource type="PackedScene" uid="uid://d0bo7fdfmqgck" path="res://enemy.tscn" id="2_ww8en"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sskl"]
+size = Vector2(1154, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lesvq"]
+size = Vector2(41, 41)
+
+[node name="Stage1" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="Rect" type="ColorRect" parent="Platform"]
+offset_left = -3.0
+offset_top = 598.0
+offset_right = 1153.0
+offset_bottom = 646.0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform"]
+position = Vector2(576, 623.5)
+shape = SubResource("RectangleShape2D_3sskl")
+
+[node name="Character" type="CharacterBody2D" parent="."]
+position = Vector2(534, 330)
+script = ExtResource("1_gru8n")
+
+[node name="Rect" type="ColorRect" parent="Character"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 1, 1)
+
+[node name="Shape" type="CollisionShape2D" parent="Character"]
+position = Vector2(19.5, 19.5)
+shape = SubResource("RectangleShape2D_lesvq")
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+
+[node name="Enemy" parent="." instance=ExtResource("2_ww8en")]
