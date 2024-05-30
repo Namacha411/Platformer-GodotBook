@@ -1,4 +1,4 @@
-extends ColorRect
+extends Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,6 +8,6 @@ func _ready():
 
 func _on_area_body_entered(body):
 	if body.name == "Character":
-		CoinCount.add(1)
+		UI.add_coin(1)
 		Audio.get_node("Coin").play()
 		self.queue_free()

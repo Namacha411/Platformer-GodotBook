@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://lwgg08a01qok"]
+[gd_scene load_steps=26 format=3 uid="uid://lwgg08a01qok"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_gru8n"]
 [ext_resource type="Script" path="res://stage1.gd" id="1_x7s2c"]
+[ext_resource type="Texture2D" uid="uid://dtobtji826lhe" path="res://ground.png" id="2_8vep2"]
 [ext_resource type="PackedScene" uid="uid://d0bo7fdfmqgck" path="res://enemy.tscn" id="2_ww8en"]
+[ext_resource type="Texture2D" uid="uid://darkuanx5fmod" path="res://godou-san-dot.png" id="3_t11f1"]
 [ext_resource type="PackedScene" uid="uid://t8bcg2mbhmlq" path="res://coin.tscn" id="4_0qr8n"]
+[ext_resource type="Texture2D" uid="uid://qbe3rjo4imf4" path="res://skybg.png" id="6_gtayj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sskl"]
 size = Vector2(1154, 49)
@@ -11,16 +14,148 @@ size = Vector2(1154, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lesvq"]
 size = Vector2(41, 41)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uux27"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d3ce"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb6fh"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21psn"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fddnr"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap3rl"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cokf3"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q0jl"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5j8s"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbk2y"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuus2"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xqdf"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxb8g"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qccla"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e0xg"]
+atlas = ExtResource("3_t11f1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3b0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uux27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d3ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb6fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21psn")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fddnr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap3rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cokf3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q0jl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5j8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbk2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuus2")
+}],
+"loop": true,
+"name": &"land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xqdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxb8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qccla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e0xg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Stage1" type="Node2D"]
 script = ExtResource("1_x7s2c")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 
-[node name="Rect" type="ColorRect" parent="Platform"]
-offset_left = -3.0
-offset_top = 598.0
-offset_right = 1153.0
-offset_bottom = 646.0
+[node name="Rect" type="Sprite2D" parent="Platform"]
+position = Vector2(576.5, 669)
+scale = Vector2(7.23125, 0.925)
+texture = ExtResource("2_8vep2")
 
 [node name="Shape" type="CollisionShape2D" parent="Platform"]
 position = Vector2(576, 623.5)
@@ -30,41 +165,43 @@ shape = SubResource("RectangleShape2D_3sskl")
 position = Vector2(534, 330)
 script = ExtResource("1_gru8n")
 
-[node name="Rect" type="ColorRect" parent="Character"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 1, 1)
-
 [node name="Shape" type="CollisionShape2D" parent="Character"]
 position = Vector2(19.5, 19.5)
 shape = SubResource("RectangleShape2D_lesvq")
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 
+[node name="Sprite" type="AnimatedSprite2D" parent="Character"]
+texture_filter = 1
+position = Vector2(19, 16)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_x3b0m")
+animation = &"walk"
+
 [node name="Enemy" parent="." instance=ExtResource("2_ww8en")]
 move_speed = 50
 can_thread = true
 
 [node name="Coin" parent="." instance=ExtResource("4_0qr8n")]
-offset_left = 140.0
-offset_top = 459.0
-offset_right = 180.0
-offset_bottom = 499.0
+position = Vector2(1033, 495)
 
 [node name="Coin2" parent="." instance=ExtResource("4_0qr8n")]
-offset_left = 399.0
-offset_top = 451.0
-offset_right = 439.0
-offset_bottom = 491.0
+position = Vector2(165, 481)
 
 [node name="Coin3" parent="." instance=ExtResource("4_0qr8n")]
-offset_left = 687.0
-offset_top = 454.0
-offset_right = 727.0
-offset_bottom = 494.0
+position = Vector2(427, 479)
 
 [node name="Coin4" parent="." instance=ExtResource("4_0qr8n")]
-offset_left = 992.0
-offset_top = 454.0
-offset_right = 1032.0
-offset_bottom = 494.0
+position = Vector2(773, 483)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="BG" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(575, 443)
+scale = Vector2(3.33203, 3.68164)
+texture = ExtResource("6_gtayj")

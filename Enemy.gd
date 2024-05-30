@@ -22,3 +22,9 @@ func _on_area_body_entered(body):
 	if body.name == "Character" and can_thread:
 		Audio.get_node("Hit").play()
 		self.queue_free()
+
+
+func _on_enemy_hitbox_body_entered(body):
+	if body.name == "Character":
+		UI.damage(20)
+		body.knockback()
