@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var move_speed: int
+@export var can_thread: bool
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -12,10 +14,11 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	velocity.x = 75
+	velocity.x = move_speed
 	move_and_slide()
 
 
 func _on_area_body_entered(body):
-	if body.name == "Character":
+	if body.name == "Character" and can_thread:
+		Audio.get_node("Hit").play()
 		self.queue_free()
