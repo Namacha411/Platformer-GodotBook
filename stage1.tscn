@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://lwgg08a01qok"]
+[gd_scene load_steps=27 format=3 uid="uid://lwgg08a01qok"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_gru8n"]
 [ext_resource type="Script" path="res://stage1.gd" id="1_x7s2c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://darkuanx5fmod" path="res://godou-san-dot.png" id="3_t11f1"]
 [ext_resource type="PackedScene" uid="uid://t8bcg2mbhmlq" path="res://coin.tscn" id="4_0qr8n"]
 [ext_resource type="Texture2D" uid="uid://qbe3rjo4imf4" path="res://skybg.png" id="6_gtayj"]
+[ext_resource type="PackedScene" uid="uid://cyl1864q1gh0t" path="res://goal.tscn" id="8_k4d8g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sskl"]
 size = Vector2(1154, 49)
@@ -162,7 +163,7 @@ position = Vector2(576, 623.5)
 shape = SubResource("RectangleShape2D_3sskl")
 
 [node name="Character" type="CharacterBody2D" parent="."]
-position = Vector2(534, 330)
+position = Vector2(1044, 549)
 script = ExtResource("1_gru8n")
 
 [node name="Shape" type="CollisionShape2D" parent="Character"]
@@ -182,8 +183,23 @@ animation = &"walk"
 move_speed = 50
 can_thread = true
 
+[node name="Enemy2" parent="." instance=ExtResource("2_ww8en")]
+position = Vector2(185, 553)
+move_speed = 50
+can_thread = true
+
+[node name="Enemy3" parent="." instance=ExtResource("2_ww8en")]
+position = Vector2(301, 553)
+move_speed = 50
+can_thread = true
+
+[node name="Enemy4" parent="." instance=ExtResource("2_ww8en")]
+position = Vector2(395, 550)
+move_speed = 50
+can_thread = true
+
 [node name="Coin" parent="." instance=ExtResource("4_0qr8n")]
-position = Vector2(1033, 495)
+position = Vector2(993, 526)
 
 [node name="Coin2" parent="." instance=ExtResource("4_0qr8n")]
 position = Vector2(165, 481)
@@ -192,10 +208,9 @@ position = Vector2(165, 481)
 position = Vector2(427, 479)
 
 [node name="Coin4" parent="." instance=ExtResource("4_0qr8n")]
-position = Vector2(773, 483)
+position = Vector2(805, 529)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
@@ -205,3 +220,15 @@ texture_filter = 1
 position = Vector2(575, 443)
 scale = Vector2(3.33203, 3.68164)
 texture = ExtResource("6_gtayj")
+
+[node name="Coin5" parent="." instance=ExtResource("4_0qr8n")]
+position = Vector2(847, 497)
+
+[node name="Coin6" parent="." instance=ExtResource("4_0qr8n")]
+position = Vector2(901, 468)
+
+[node name="Coin7" parent="." instance=ExtResource("4_0qr8n")]
+position = Vector2(952, 500)
+
+[node name="Goal" parent="." instance=ExtResource("8_k4d8g")]
+position = Vector2(45, 573)
