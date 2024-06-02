@@ -15,4 +15,3 @@ func _on_area_body_entered(body):
 			self.add_child(new)
 		await get_tree().create_timer(3).timeout
 		UI.restart()
-		# get_tree().change_scene_to_file("res://stage1.tscn")
